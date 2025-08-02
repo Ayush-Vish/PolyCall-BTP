@@ -1,0 +1,127 @@
+
+#ifndef PORTABILITY_PATH_H
+#define PORTABILITY_PATH_H 1
+
+/* -- Headers -- */
+
+#include <portability/portability_api.h>
+
+/* -- Definitions -- */
+
+/* Path limits */
+#if defined(WIN32) || defined(_WIN32) || \
+	defined(__CYGWIN__) || defined(__CYGWIN32__) || \
+	defined(__MINGW32__) || defined(__MINGW64__)
+
+	#ifndef NOMINMAX
+		#define NOMINMAX
+	#endif
+
+	#ifndef WIN32_LEAN_AND_MEAN
+		#define WIN32_LEAN_AND_MEAN
+	#endif
+
+	#include <windows.h>
+	#define PORTABILITY_PATH_SIZE MAX_PATH
+#elif defined(unix) || defined(__unix__) || defined(__unix) || \
+	defined(linux) || defined(__linux__) || defined(__linux) || defined(__gnu_linux) || \
+	defined(__NetBSD__) || defined(__DragonFly__)
+
+	#include <limits.h>
+	#include <unistd.h>
+
+	#define PORTABILITY_PATH_SIZE PATH_MAX
+#elif (defined(__APPLE__) && defined(__MACH__)) || defined(__MACOSX__)
+	#include <stdlib.h>
+	#include <limits.h>
+	#include <sys/syslimits.h>
+
+	#define PORTABILITY_PATH_SIZE PATH_MAX
+#elif defined(__FreeBSD__)
+	#include <limits.h>
+	#include <sys/types.h>
+	#include <sys/sysctl.h>
+
+	#define PORTABILITY_PATH_SIZE PATH_MAX
+#elif defined(sun) || defined(__sun)
+	#include <stdlib.h>
+	#include <limits.h>
+	#include <string.h>
+
+	#define PORTABILITY_PATH_SIZE PATH_MAX
+#else
+	#error "Unimplemented platform, please add support to it"
+#endif
+
+/* Path separator */
+#if defined(WIN32) || defined(_WIN32) || \
+	defined(__CYGWIN__) || defined(__CYGWIN32__) || \
+	defined(__MINGW32__) || defined(__MINGW64__)
+
+	#define PORTABILITY_PATH_SEPARATOR(chr) (chr == '\\' || chr == '/')
+	#define PORTABILITY_PATH_SEPARATOR_C	'/'
+
+#elif defined(unix) || defined(__unix__) || defined(__unix) || \
+	defined(linux) || defined(__linux__) || defined(__linux) || defined(__gnu_linux) || \
+	defined(__CYGWIN__) || defined(__CYGWIN32__) || \
+	(defined(__APPLE__) && defined(__MACH__)) || defined(__MACOSX__) || \
+	defined(__HAIKU__) || defined(__BEOS__)
+	#define PORTABILITY_PATH_SEPARATOR(chr) (chr == '/')
+	#define PORTABILITY_PATH_SEPARATOR_C	'/'
+
+#else
+	#error "Unknown path separator"
+#endif
+
+/* Path delimiter */
+#if defined(WIN32) || defined(_WIN32) || \
+	defined(__CYGWIN__) || defined(__CYGWIN32__) || \
+	defined(__MINGW32__) || defined(__MINGW64__)
+
+	#define PORTABILITY_PATH_DELIMITER ';'
+
+#else
+	#define PORTABILITY_PATH_DELIMITER ':'
+#endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* -- Methods -- */
+
+PORTABILITY_API size_t portability_path_get_name(const char *path, size_t path_size, char *name, size_t name_size);
+
+PORTABILITY_API size_t portability_path_get_name_canonical(const char *path, size_t path_size, char *name, size_t name_size);
+
+PORTABILITY_API size_t portability_path_get_fullname(const char *path, size_t path_size, char *name, size_t name_size);
+
+PORTABILITY_API size_t portability_path_get_extension(const char *path, size_t path_size, char *extension, size_t extension_size);
+
+PORTABILITY_API size_t portability_path_get_module_name(const char *path, size_t path_size, const char *extension, size_t extension_size, char *name, size_t name_size);
+
+PORTABILITY_API size_t portability_path_get_directory(const char *path, size_t path_size, char *absolute, size_t absolute_size);
+
+PORTABILITY_API size_t portability_path_get_directory_inplace(char *path, size_t size);
+
+PORTABILITY_API size_t portability_path_get_relative(const char *base, size_t base_size, const char *path, size_t path_size, char *relative, size_t relative_size);
+
+PORTABILITY_API int portability_path_is_subpath(const char *parent, size_t parent_size, const char *child, size_t child_size);
+
+PORTABILITY_API int portability_path_is_absolute(const char *path, size_t size);
+
+PORTABILITY_API size_t portability_path_join(const char *left_path, size_t left_path_size, const char *right_path, size_t right_path_size, char *join_path, size_t join_size);
+
+PORTABILITY_API size_t portability_path_canonical(const char *path, size_t path_size, char *canonical, size_t canonical_size);
+
+PORTABILITY_API int portability_path_separator_normalize_inplace(char *path, size_t size);
+
+PORTABILITY_API int portability_path_compare(const char *left_path, const char *right_path);
+
+PORTABILITY_API int portability_path_is_pattern(const char *path, size_t size);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* PORTABILITY_PATH_H */
