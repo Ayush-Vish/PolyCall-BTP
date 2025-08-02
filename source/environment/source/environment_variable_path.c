@@ -1,0 +1,86 @@
+#include <environment/environment_variable_path.h>
+
+#include <stdlib.h>
+#include <string.h>
+
+
+#if defined(WIN32) || defined(_WIN32) || \
+	defined(__CYGWIN__) || defined(__CYGWIN32__) || \
+	defined(__MINGW32__) || defined(__MINGW64__)
+	#define ENVIRONMENT_VARIABLE_PATH_SEPARATOR(chr) (chr == '/' || chr == '\\')
+#elif defined(unix) || defined(__unix__) || defined(__unix) || \
+	defined(linux) || defined(__linux__) || defined(__linux) || defined(__gnu_linux) || \
+	defined(__CYGWIN__) || defined(__CYGWIN32__) || \
+	(defined(__APPLE__) && defined(__MACH__)) || defined(__MACOSX__) || \
+	defined(__HAIKU__) || defined(__BEOS__)
+	#define ENVIRONMENT_VARIABLE_PATH_SEPARATOR(chr) (chr == '/')
+#else
+	#error "Unknown environment variable path separator"
+#endif
+
+
+char *environment_variable_path_create(const char *name, const char *default_path, size_t default_path_size, size_t *env_size)
+{
+	const char *path_ptr = getenv(name);
+	char *path;
+	size_t length, size, last, end;
+
+	if (path_ptr == NULL)
+	{
+		if (default_path == NULL)
+		{
+			static const char empty_path[] = "";
+
+			default_path = empty_path;
+			default_path_size = sizeof(empty_path);
+		}
+
+		path_ptr = default_path;
+		length = default_path_size - 1;
+	}
+	else
+	{
+		length = strlen(path_ptr);
+	}
+
+	last = length - 1;
+
+	if (ENVIRONMENT_VARIABLE_PATH_SEPARATOR(path_ptr[last]))
+	{
+		end = length;
+		size = length + 1;
+	}
+	else
+	{
+		last = length;
+		end = length + 1;
+		size = length + 2;
+	}
+
+	path = malloc(sizeof(char) * size);
+
+	if (path == NULL)
+	{
+		return NULL;
+	}
+
+	strncpy(path, path_ptr, length);
+
+	path[last] = ENVIRONMENT_VARIABLE_PATH_SEPARATOR_C;
+	path[end] = '\0';
+
+	if (env_size != NULL)
+	{
+		*env_size = size;
+	}
+
+	return path;
+}
+
+void environment_variable_path_destroy(char *variable_path)
+{
+	if (variable_path)
+	{
+		free(variable_path);
+	}
+}
