@@ -1,0 +1,134 @@
+
+set(target memory)
+
+message(STATUS "Lib ${target}")
+
+string(TOUPPER ${target} target_upper)
+set(export_file  "include/${target}/${target}_api.h")
+set(export_macro "${target_upper}_API")
+
+
+
+include(Warnings)
+
+
+include(SecurityFlags)
+
+
+set(include_path "${CMAKE_CURRENT_SOURCE_DIR}/include/${target}")
+set(source_path  "${CMAKE_CURRENT_SOURCE_DIR}/source")
+
+set(headers
+	${include_path}/memory.h
+	${include_path}/memory_allocator.h
+	${include_path}/memory_allocator_iface.h
+	${include_path}/memory_allocator_impl.h
+	${include_path}/memory_allocator_std.h
+	${include_path}/memory_allocator_std_impl.h
+	${include_path}/memory_allocator_nginx.h
+	${include_path}/memory_allocator_nginx_impl.h
+)
+
+set(sources
+	${source_path}/memory.c
+	${source_path}/memory_allocator.c
+	${source_path}/memory_allocator_std.c
+	${source_path}/memory_allocator_std_impl.c
+	${source_path}/memory_allocator_nginx.c
+	${source_path}/memory_allocator_nginx_impl.c
+)
+
+set(header_group "Header Files (API)")
+set(source_group "Source Files")
+source_group_by_path(${include_path} "\\\\.h$|\\\\.hpp$"
+	${header_group} ${headers})
+source_group_by_path(${source_path}  "\\\\.cpp$|\\\\.c$|\\\\.h$|\\\\.hpp$"
+	${source_group} ${sources})
+
+
+add_library(${target}
+	${sources}
+	${headers}
+)
+
+add_library(${META_PROJECT_NAME}::${target} ALIAS ${target})
+
+export(TARGETS ${target} NAMESPACE ${META_PROJECT_NAME}:: FILE ${PROJECT_BINARY_DIR}/cmake/${target}/${target}-export.cmake)
+
+generate_export_header(${target}
+	EXPORT_FILE_NAME  ${export_file}
+	EXPORT_MACRO_NAME ${export_macro}
+)
+
+
+set_target_properties(${target}
+	PROPERTIES
+	${DEFAULT_PROJECT_OPTIONS}
+	FOLDER "${IDE_FOLDER}"
+)
+
+
+
+target_include_directories(${target}
+	PRIVATE
+	${PROJECT_BINARY_DIR}/source/include
+	${CMAKE_CURRENT_SOURCE_DIR}/include
+	${CMAKE_CURRENT_BINARY_DIR}/include
+
+	PUBLIC
+	${DEFAULT_INCLUDE_DIRECTORIES}
+
+	INTERFACE
+	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+	$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
+	$<INSTALL_INTERFACE:include>
+)
+
+
+target_link_libraries(${target}
+	PRIVATE
+	${META_PROJECT_NAME}::version
+	${META_PROJECT_NAME}::preprocessor
+	${META_PROJECT_NAME}::format
+	${META_PROJECT_NAME}::threading
+	${META_PROJECT_NAME}::log
+
+	PUBLIC
+	${DEFAULT_LIBRARIES}
+
+	INTERFACE
+)
+
+
+
+target_compile_definitions(${target}
+	PRIVATE
+	${target_upper}_EXPORTS # Export API
+
+	PUBLIC
+	$<$<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:${target_upper}_STATIC_DEFINE>
+	${DEFAULT_COMPILE_DEFINITIONS}
+
+	INTERFACE
+)
+
+
+
+target_compile_options(${target}
+	PRIVATE
+
+	PUBLIC
+	${DEFAULT_COMPILE_OPTIONS}
+
+	INTERFACE
+)
+
+
+target_link_options(${target}
+	PRIVATE
+
+	PUBLIC
+	${DEFAULT_LINKER_OPTIONS}
+
+	INTERFACE
+)
