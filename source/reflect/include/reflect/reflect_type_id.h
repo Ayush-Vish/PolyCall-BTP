@@ -1,0 +1,258 @@
+#ifndef REFLECT_TYPE_ID_H
+#define REFLECT_TYPE_ID_H 1
+
+#include <reflect/reflect_api.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+enum type_primitive_id
+{
+	TYPE_BOOL = 0,
+	TYPE_CHAR = 1,
+	TYPE_SHORT = 2,
+	TYPE_INT = 3,
+	TYPE_LONG = 4,
+	TYPE_FLOAT = 5,
+	TYPE_DOUBLE = 6,
+	TYPE_STRING = 7,
+	TYPE_BUFFER = 8,
+	TYPE_ARRAY = 9,
+	TYPE_MAP = 10,
+	TYPE_PTR = 11,
+	TYPE_FUTURE = 12,
+	TYPE_FUNCTION = 13,
+	TYPE_NULL = 14,
+	TYPE_CLASS = 15,
+	TYPE_OBJECT = 16,
+	TYPE_EXCEPTION = 17,
+	TYPE_THROWABLE = 18,
+
+	TYPE_SIZE,
+	TYPE_INVALID
+};
+
+typedef int type_id;
+
+/**
+*  @brief
+*    Obtain a human readable form of the type id @id
+*
+*  @param[in] id
+*    Type id to be converted into string
+*
+*  @return
+*    String representing a readable name for @id
+*/
+REFLECT_API const char *type_id_name(type_id id);
+
+/**
+*  @brief
+*    Check if type id is boolean value (bool)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is integer, different from zero otherwhise
+*/
+REFLECT_API int type_id_boolean(type_id id);
+
+/**
+*  @brief
+*    Check if type id is char value (char)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is char, different from zero otherwhise
+*/
+REFLECT_API int type_id_char(type_id id);
+
+/**
+*  @brief
+*    Check if type id is integer value (bool, char, short, int, long)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is integer, different from zero otherwhise
+*/
+REFLECT_API int type_id_integer(type_id id);
+
+/**
+*  @brief
+*    Check if type id is decimal value (float, double)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is decimal, different from zero otherwhise
+*/
+REFLECT_API int type_id_decimal(type_id id);
+
+/**
+*  @brief
+*    Check if type id is string value (char *)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is string, different from zero otherwhise
+*/
+REFLECT_API int type_id_string(type_id id);
+
+/**
+*  @brief
+*    Check if type id is buffer value (void *)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is buffer, different from zero otherwhise
+*/
+REFLECT_API int type_id_buffer(type_id id);
+
+/**
+*  @brief
+*    Check if type id is array of values (value *)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is array, different from zero otherwhise
+*/
+REFLECT_API int type_id_array(type_id id);
+
+/**
+*  @brief
+*    Check if type id is map of values (string -> value)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is map, different from zero otherwhise
+*/
+REFLECT_API int type_id_map(type_id id);
+
+/**
+*  @brief
+*    Check if type id is pointer value (void *)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is pointer, different from zero otherwhise
+*/
+REFLECT_API int type_id_ptr(type_id id);
+
+/**
+*  @brief
+*    Check if type id is future value (future)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is future, different from zero otherwhise
+*/
+REFLECT_API int type_id_future(type_id id);
+
+/**
+*  @brief
+*    Check if type id is function value (function)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is function, different from zero otherwhise
+*/
+REFLECT_API int type_id_function(type_id id);
+
+/**
+*  @brief
+*    Check if type id is pointer value NULL
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is null, different from zero otherwhise
+*/
+REFLECT_API int type_id_null(type_id id);
+
+/**
+*  @brief
+*    Check if type id is class value (class)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is class, different from zero otherwhise
+*/
+REFLECT_API int type_id_class(type_id id);
+
+/**
+*  @brief
+*    Check if type id is object value (object)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is object, different from zero otherwhise
+*/
+REFLECT_API int type_id_object(type_id id);
+
+/**
+*  @brief
+*    Check if type id is exception value (error type)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is exception, different from zero otherwhise
+*/
+REFLECT_API int type_id_exception(type_id id);
+
+/**
+*  @brief
+*    Check if type id is throwable value (thrown type)
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is throwable, different from zero otherwhise
+*/
+REFLECT_API int type_id_throwable(type_id id);
+
+/**
+*  @brief
+*    Check if type id is invalid
+*
+*  @param[in] id
+*    Type id to be checked
+*
+*  @return
+*    Returns zero if type is invalid, different from zero otherwhise
+*/
+REFLECT_API int type_id_invalid(type_id id);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* REFLECT_TYPE_ID_H */
