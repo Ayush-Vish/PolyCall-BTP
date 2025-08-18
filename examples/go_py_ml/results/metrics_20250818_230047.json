@@ -1,0 +1,113 @@
+[
+  {
+    "timestamp": "2025-08-18T23:00:36.519120516+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 6939,
+    "memory_mb": 19,
+    "worker_id": 15
+  },
+  {
+    "timestamp": "2025-08-18T23:00:36.938753186+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 7359,
+    "memory_mb": 19,
+    "worker_id": 6
+  },
+  {
+    "timestamp": "2025-08-18T23:00:37.353389111+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 7773,
+    "memory_mb": 19
+  },
+  {
+    "timestamp": "2025-08-18T23:00:37.732887696+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 8153,
+    "memory_mb": 19,
+    "worker_id": 1
+  },
+  {
+    "timestamp": "2025-08-18T23:00:38.074219902+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 8494,
+    "memory_mb": 19,
+    "worker_id": 2
+  },
+  {
+    "timestamp": "2025-08-18T23:00:38.41960408+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 8840,
+    "memory_mb": 20,
+    "worker_id": 3
+  },
+  {
+    "timestamp": "2025-08-18T23:00:38.827219704+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 9247,
+    "memory_mb": 20,
+    "worker_id": 4
+  },
+  {
+    "timestamp": "2025-08-18T23:00:39.221710339+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 9642,
+    "memory_mb": 20,
+    "worker_id": 10
+  },
+  {
+    "timestamp": "2025-08-18T23:00:39.634299037+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 10054,
+    "memory_mb": 20,
+    "worker_id": 9
+  },
+  {
+    "timestamp": "2025-08-18T23:00:40.050320608+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 10470,
+    "memory_mb": 20,
+    "worker_id": 12
+  },
+  {
+    "timestamp": "2025-08-18T23:00:40.891291355+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 11311,
+    "memory_mb": 20,
+    "worker_id": 8
+  },
+  {
+    "timestamp": "2025-08-18T23:00:42.412927408+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 12833,
+    "memory_mb": 20,
+    "worker_id": 11
+  },
+  {
+    "timestamp": "2025-08-18T23:00:43.938897604+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 14359,
+    "memory_mb": 20,
+    "worker_id": 7
+  },
+  {
+    "timestamp": "2025-08-18T23:00:45.560541148+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 15980,
+    "memory_mb": 20,
+    "worker_id": 5
+  },
+  {
+    "timestamp": "2025-08-18T23:00:47.083574443+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 17503,
+    "memory_mb": 20,
+    "worker_id": 14
+  },
+  {
+    "timestamp": "2025-08-18T23:00:47.458687051+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 17879,
+    "memory_mb": 20,
+    "worker_id": 13
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2025-02-05T13:43:44.48857282+05:30",
+    "operation": "Worker_1",
+    "duration_ms": 39249,
+    "memory_mb": 94
+  },
+  {
+    "timestamp": "2025-02-05T13:43:44.796157574+05:30",
+    "operation": "Worker_0",
+    "duration_ms": 39557,
+    "memory_mb": 94
+  },
+  {
+    "timestamp": "2025-02-05T13:43:45.134447355+05:30",
+    "operation": "Worker_2",
+    "duration_ms": 39895,
+    "memory_mb": 94
+  },
+  {
+    "timestamp": "2025-02-05T13:43:45.461909859+05:30",
+    "operation": "Worker_3",
+    "duration_ms": 40222,
+    "memory_mb": 94
+  }
+]
