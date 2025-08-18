@@ -1,0 +1,20 @@
+{
+	"name": "metacall",
+	"version": "0.5.0",
+	"main": "index.js",
+	"keywords": [
+		"polyglot",
+		"ffi",
+		"inter-language",
+		"multi-language",
+		"function-mesh"
+	],
+	"license": "Apache-2.0",
+	"publishConfig": {
+		"access": "public"
+	},
+	"types": "./index.d.ts",
+	"devDependencies": {
+		"mocha": "^9.2.1"
+	}
+}

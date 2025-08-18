@@ -1,6 +1,7 @@
 {
       "files.associations": {
             "*.embeddedhtml": "html",
-            "stdlib.h": "c"
+            "stdlib.h": "c",
+            "serial_interface.h": "c"
       }
 }
