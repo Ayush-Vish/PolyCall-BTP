@@ -4,7 +4,7 @@ set -e
 RUNTIME_DIR="$HOME/.polycall/runtime"
 VISIBLE_DIR="$HOME/PolyCall-BTP"
 
-./clean.sh
+bash <(curl -fsSL https://raw.githubusercontent.com/Ayush-Vish/PolyCall-BTP/main/scripts/clean.sh)
 echo "[*] Setting up PolyCall repo..."
 rm -rf "$VISIBLE_DIR"
 git clone https://github.com/Ayush-Vish/PolyCall-BTP "$VISIBLE_DIR" >/dev/null 2>&1
