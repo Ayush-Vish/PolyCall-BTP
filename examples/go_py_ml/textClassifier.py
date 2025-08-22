@@ -12,11 +12,10 @@ print(os.getcwd())
 # -------------------------------
 # Load dataset
 # -------------------------------
-dataFile = pd.read_csv("./wine-reviews.csv")
-data = dataFile['description'].tolist()
-descriptions = data[:1000]  # only first 1000
-print("First description:", descriptions[0])
-
+dataFile = pd.read_csv("./IMDB.csv")
+data = dataFile['review'].tolist()   # IMDB dataset usually has 'review' column
+reviews = data[:1000]  # only first 1000 reviews
+print("First review:", reviews[0])
 # -------------------------------
 # Load model
 # -------------------------------
@@ -33,7 +32,8 @@ print("Model loaded!")
 # -------------------------------
 def classify_text(text: str | list[str]) -> dict | list[dict]:
     print("Processing in the model")
-    result = classifier(text)
+    result = classifier(text, truncation=True, max_length=512)
+
     print("Result obtained")
     return result[0] if isinstance(text, str) else result
 
@@ -47,7 +47,11 @@ def classifyTextsBatches(text: list[str], batchSize: int = 8) -> list[dict]:
         desc=f"Processing {total_records} records in {num_batches} batches"
     ):
         batch = text[i:i + batchSize]
-        batch_results = classifier(batch)
+        batch_results = classifier(
+                            batch,
+                            truncation=True,
+                            max_length=512
+                        )
         results.extend(batch_results)
     return results
 
@@ -59,7 +63,7 @@ process = psutil.Process(os.getpid())
 mem_before = process.memory_info().rss / (1024 * 1024)  # MB
 start_time = time.perf_counter()
 
-results = classifyTextsBatches(descriptions, batchSize=8)
+results = classifyTextsBatches(reviews, batchSize=8)
 
 end_time = time.perf_counter()
 mem_after = process.memory_info().rss / (1024 * 1024)  # MB
@@ -87,7 +91,7 @@ if not os.path.exists('results'):
     os.makedirs('results')
 
 results_with_text = []
-for i, (text, result) in enumerate(zip(descriptions, results)):
+for i, (text, result) in enumerate(zip(reviews, results)):
     results_with_text.append({
         "index": i,
         "text": text,
