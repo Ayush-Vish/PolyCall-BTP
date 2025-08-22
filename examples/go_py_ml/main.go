@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"runtime"
+	"strings"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -21,32 +22,32 @@ var (
 
 // Time + memory metrics for each event
 type OpMetrics struct {
-	Timestamp   time.Time `json:"timestamp"`
-	Step        string    `json:"step"`
-	ElapsedMS   int64     `json:"elapsed_ms"`
-	MemMB       uint64    `json:"memory_mb"`
-	BatchSize   int       `json:"batch_size,omitempty"`
-	WorkerID    int       `json:"worker_id,omitempty"`
+	Timestamp time.Time `json:"timestamp"`
+	Step      string    `json:"step"`
+	ElapsedMS int64     `json:"elapsed_ms"`
+	MemMB     uint64    `json:"memory_mb"`
+	BatchSize int       `json:"batch_size,omitempty"`
+	WorkerID  int       `json:"worker_id,omitempty"`
 }
 
 // Summary info for a single batch
 type BatchStats struct {
-	BatchID       int32  `json:"batch_id"`
-	ItemsHandled  int    `json:"items_handled"`
-	DurationMS    int64  `json:"duration_ms"`
-	MemUsage      uint64 `json:"memory_mb"`
-	WorkerID      int    `json:"worker_id"`
+	BatchID      int32  `json:"batch_id"`
+	ItemsHandled int    `json:"items_handled"`
+	DurationMS   int64  `json:"duration_ms"`
+	MemUsage     uint64 `json:"memory_mb"`
+	WorkerID     int    `json:"worker_id"`
 }
 
 // A processed record from Python
 type Record struct {
-	Index         int     `json:"index"`
-	Text          string  `json:"text"`
-	Label         string  `json:"label"`
-	Score         float64 `json:"score"`
-	BatchID       int32   `json:"batch_id"`
-	WorkerID      int     `json:"worker_id"`
-	DurationMS    int64   `json:"duration_ms"`
+	Index      int     `json:"index"`
+	Text       string  `json:"text"`
+	Label      string  `json:"label"`
+	Score      float64 `json:"score"`
+	BatchID    int32   `json:"batch_id"`
+	WorkerID   int     `json:"worker_id"`
+	DurationMS int64   `json:"duration_ms"`
 }
 
 // BatchManager distributes work across workers
@@ -72,11 +73,12 @@ func memUsageMB() uint64 {
 }
 
 func NewBatchManager(batchSize, workers, total int) *BatchManager {
+	// Increase channel buffer size to reduce blocking
 	return &BatchManager{
 		batchSize:   batchSize,
 		workerCount: workers,
-		inChan:      make(chan []string, workers*2),
-		outChan:     make(chan []Record, workers*2),
+		inChan:      make(chan []string, workers*4), // Increased buffer
+		outChan:     make(chan []Record, workers*4), // Increased buffer
 		errChan:     make(chan error, workers),
 		opMetrics:   make([]OpMetrics, 0, total/batchSize+1),
 		batchStats:  make([]BatchStats, 0, total/batchSize+1),
@@ -121,10 +123,34 @@ func (bm *BatchManager) handleBatch(batch []string, workerID int) error {
 	begin := time.Now()
 	batchID := atomic.AddInt32(&batchesIssued, 1)
 
-	fmt.Printf("Worker %d -> Batch %d (size %d)\n", workerID, batchID, len(batch))
+	// Clean and truncate texts to match Python preprocessing
+	cleanBatch := make([]string, 0, len(batch))
+	for _, text := range batch {
+		// Standardize cleaning to match Python
+		cleanText := strings.ReplaceAll(text, "<[^>]+>", "") // Remove HTML tags
+		cleanText = strings.ReplaceAll(cleanText, "\n", " ")
+		cleanText = strings.ReplaceAll(cleanText, "\"", "")
+		cleanText = strings.Join(strings.Fields(cleanText), " ") // Normalize whitespace
+		cleanText = strings.TrimSpace(cleanText)
 
-	// Python call
-	result, err := polycall.Call("process_batch", batch)
+		// Skip empty texts
+		if len(cleanText) == 0 {
+			continue
+		}
+
+		// Truncate to 512 tokens (approximate with 512 chars to match Python's max_length=512)
+		if len(cleanText) > 512 {
+			cleanText = cleanText[:512] + "...[TRUNCATED]"
+		}
+		cleanBatch = append(cleanBatch, cleanText)
+	}
+
+	if len(cleanBatch) == 0 {
+		return nil
+	}
+
+	// Python call with error handling
+	result, err := polycall.Call("process_batch", cleanBatch)
 	if err != nil {
 		return fmt.Errorf("pycall failed: %v", err)
 	}
@@ -141,7 +167,7 @@ func (bm *BatchManager) handleBatch(batch []string, workerID int) error {
 		if asMap, ok := r.(map[string]interface{}); ok {
 			rec := Record{
 				Index:      (int(batchID)-1)*bm.batchSize + i,
-				Text:       batch[i],
+				Text:       cleanBatch[i], // Use cleaned text
 				Label:      asMap["label"].(string),
 				Score:      asMap["score"].(float64),
 				BatchID:    batchID,
@@ -159,7 +185,7 @@ func (bm *BatchManager) handleBatch(batch []string, workerID int) error {
 	bm.mtx.Lock()
 	bm.batchStats = append(bm.batchStats, BatchStats{
 		BatchID:      batchID,
-		ItemsHandled: len(batch),
+		ItemsHandled: len(cleanBatch),
 		DurationMS:   elapsed,
 		MemUsage:     memNow,
 		WorkerID:     workerID,
@@ -174,12 +200,12 @@ func (bm *BatchManager) handleBatch(batch []string, workerID int) error {
 func writeResults(records []Record, file string) error {
 	output := struct {
 		Meta struct {
-			Total       int   `json:"total"`
-			NegCount    int   `json:"neg_count"`
-			PosCount    int   `json:"pos_count"`
-			ProcMS      int64 `json:"proc_time_ms"`
-			AvgBatchMS  int64 `json:"avg_batch_time_ms"`
-			BatchTotal  int32 `json:"batch_total"`
+			Total      int   `json:"total"`
+			NegCount   int   `json:"neg_count"`
+			PosCount   int   `json:"pos_count"`
+			ProcMS     int64 `json:"proc_time_ms"`
+			AvgBatchMS int64 `json:"avg_batch_time_ms"`
+			BatchTotal int32 `json:"batch_total"`
 		} `json:"meta"`
 		Data []Record `json:"data"`
 	}{Data: records}
@@ -209,6 +235,7 @@ func readCSV(file string, targetCol string) ([]string, error) {
 	defer f.Close()
 
 	reader := csv.NewReader(f)
+	reader.FieldsPerRecord = -1 // Allow variable number of fields
 	headers, err := reader.Read()
 	if err != nil {
 		return nil, fmt.Errorf("cannot read headers: %v", err)
@@ -255,19 +282,25 @@ func main() {
 		log.Fatalf("Python script load failed: %v", err)
 	}
 
-	descs, err := readCSV("7817_1.csv", "categories")
+	// Read CSV in a separate goroutine to overlap I/O
+	descsChan := make(chan []string, 1)
+	go func() {
+		descs, err := readCSV("IMDB.csv", "review")
+		if err != nil {
+			log.Fatalf("CSV error: %v", err)
+		}
+		descsChan <- descs
+	}()
 
-
-	if err != nil {
-		log.Fatalf("CSV error: %v", err)
-	}
+	descs := <-descsChan
 	fmt.Printf("Loaded %d descriptions\n", len(descs))
 
-	batchSize := 32
-	workers := runtime.NumCPU()
+	// Optimize batch size and worker count
+	batchSize := 16 // Reduced from 32
+	workers := 8    // Reduced from runtime.NumCPU()
 	manager := NewBatchManager(batchSize, workers, len(descs))
 
-	// build batches
+	// Build batches
 	var allBatches [][]string
 	temp := make([]string, 0, batchSize)
 	for _, d := range descs {
@@ -281,7 +314,7 @@ func main() {
 		allBatches = append(allBatches, temp)
 	}
 
-	// collect results
+	// Collect results
 	var allRecords []Record
 	done := make(chan bool)
 	go func() {
@@ -292,12 +325,13 @@ func main() {
 		done <- true
 	}()
 
-	// spawn workers
+	// Spawn workers
 	manager.wg.Add(workers)
 	for i := 0; i < workers; i++ {
 		go manager.workerLoop(i)
 	}
 
+	// Feed batches
 	for _, b := range allBatches {
 		manager.inChan <- b
 	}

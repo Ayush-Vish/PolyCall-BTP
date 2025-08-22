@@ -1,0 +1,101 @@
+{
+  "total_execution_time": 304.5952684879303,
+  "csv_load_time": 0.5852375030517578,
+  "initial_memory": 661.90625,
+  "average_memory": 636.15625,
+  "final_memory": 730.33203125,
+  "memory_increase": 68.42578125,
+  "total_processed": 125,
+  "sentiment_distribution": {
+    "POSITIVE": 41,
+    "NEGATIVE": 84
+  },
+  "process_metrics": [
+    {
+      "process_id": 7,
+      "chunk_size": 125,
+      "start_time": 1755885421.2235355,
+      "start_memory": 462.36328125,
+      "model_load_time": 85.46630883216858,
+      "post_model_memory": 622.703125,
+      "model_memory_increase": 160.33984375,
+      "processing_time": 204.40141439437866,
+      "total_time": 289.8696131706238,
+      "success_count": 125,
+      "end_memory": 636.828125,
+      "memory_peak": 636.828125,
+      "batch_metrics": [
+        {
+          "batch_index": 0,
+          "processed": 16,
+          "pre_batch_memory": 622.703125,
+          "post_batch_memory": 634.828125,
+          "memory_increase": 12.125,
+          "cpu_usage": 0.0
+        },
+        {
+          "batch_index": 1,
+          "processed": 16,
+          "pre_batch_memory": 634.828125,
+          "post_batch_memory": 635.453125,
+          "memory_increase": 0.625,
+          "cpu_usage": 0.0
+        },
+        {
+          "batch_index": 2,
+          "processed": 16,
+          "pre_batch_memory": 635.453125,
+          "post_batch_memory": 635.703125,
+          "memory_increase": 0.25,
+          "cpu_usage": 0.0
+        },
+        {
+          "batch_index": 3,
+          "processed": 16,
+          "pre_batch_memory": 635.703125,
+          "post_batch_memory": 635.953125,
+          "memory_increase": 0.25,
+          "cpu_usage": 0.0
+        },
+        {
+          "batch_index": 4,
+          "processed": 16,
+          "pre_batch_memory": 635.953125,
+          "post_batch_memory": 636.828125,
+          "memory_increase": 0.875,
+          "cpu_usage": 0.0
+        },
+        {
+          "batch_index": 5,
+          "processed": 16,
+          "pre_batch_memory": 636.828125,
+          "post_batch_memory": 636.828125,
+          "memory_increase": 0.0,
+          "cpu_usage": 0.0
+        },
+        {
+          "batch_index": 6,
+          "processed": 16,
+          "pre_batch_memory": 636.828125,
+          "post_batch_memory": 636.828125,
+          "memory_increase": 0.0,
+          "cpu_usage": 0.0
+        },
+        {
+          "batch_index": 7,
+          "processed": 13,
+          "pre_batch_memory": 636.828125,
+          "post_batch_memory": 636.828125,
+          "memory_increase": 0.0,
+          "cpu_usage": 0.0
+        }
+      ]
+    }
+  ],
+  "timestamp": "2025-08-22T23:31:51.129152",
+  "system_info": {
+    "cpu_count": 16,
+    "total_memory": 15611.078125,
+    "platform": "Linux"
+  }
+}

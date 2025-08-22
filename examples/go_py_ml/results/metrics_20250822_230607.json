@@ -1,0 +1,113 @@
+[
+  {
+    "timestamp": "2025-08-22T23:05:30.360096226+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 40336,
+    "memory_mb": 73,
+    "worker_id": 15
+  },
+  {
+    "timestamp": "2025-08-22T23:05:32.941615429+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 42915,
+    "memory_mb": 73,
+    "worker_id": 6
+  },
+  {
+    "timestamp": "2025-08-22T23:05:35.404557904+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 45376,
+    "memory_mb": 73,
+    "worker_id": 3
+  },
+  {
+    "timestamp": "2025-08-22T23:05:38.051737103+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 48027,
+    "memory_mb": 73,
+    "worker_id": 4
+  },
+  {
+    "timestamp": "2025-08-22T23:05:40.618572242+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 50594,
+    "memory_mb": 73,
+    "worker_id": 5
+  },
+  {
+    "timestamp": "2025-08-22T23:05:43.378392907+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 53354,
+    "memory_mb": 73,
+    "worker_id": 10
+  },
+  {
+    "timestamp": "2025-08-22T23:05:46.100321079+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 56076,
+    "memory_mb": 73,
+    "worker_id": 7
+  },
+  {
+    "timestamp": "2025-08-22T23:05:49.035933214+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 59012,
+    "memory_mb": 73,
+    "worker_id": 2
+  },
+  {
+    "timestamp": "2025-08-22T23:05:51.718329083+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 61694,
+    "memory_mb": 73,
+    "worker_id": 8
+  },
+  {
+    "timestamp": "2025-08-22T23:05:54.181297522+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 64157,
+    "memory_mb": 73
+  },
+  {
+    "timestamp": "2025-08-22T23:05:56.297763894+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 66273,
+    "memory_mb": 73,
+    "worker_id": 9
+  },
+  {
+    "timestamp": "2025-08-22T23:05:58.400529927+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 68376,
+    "memory_mb": 73,
+    "worker_id": 12
+  },
+  {
+    "timestamp": "2025-08-22T23:06:00.699268773+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 70675,
+    "memory_mb": 73,
+    "worker_id": 13
+  },
+  {
+    "timestamp": "2025-08-22T23:06:03.12685952+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 73102,
+    "memory_mb": 73,
+    "worker_id": 14
+  },
+  {
+    "timestamp": "2025-08-22T23:06:06.725006608+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 76700,
+    "memory_mb": 73,
+    "worker_id": 1
+  },
+  {
+    "timestamp": "2025-08-22T23:06:07.64955463+05:30",
+    "step": "worker_done",
+    "elapsed_ms": 77622,
+    "memory_mb": 73,
+    "worker_id": 11
+  }
+]

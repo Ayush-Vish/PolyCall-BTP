@@ -1,0 +1,443 @@
+[
+  {
+    "batch_id": 1,
+    "items_handled": 16,
+    "duration_ms": 1178,
+    "memory_mb": 72,
+    "worker_id": 7
+  },
+  {
+    "batch_id": 2,
+    "items_handled": 16,
+    "duration_ms": 2353,
+    "memory_mb": 73,
+    "worker_id": 2
+  },
+  {
+    "batch_id": 3,
+    "items_handled": 16,
+    "duration_ms": 3487,
+    "memory_mb": 73,
+    "worker_id": 0
+  },
+  {
+    "batch_id": 5,
+    "items_handled": 16,
+    "duration_ms": 4559,
+    "memory_mb": 73,
+    "worker_id": 1
+  },
+  {
+    "batch_id": 4,
+    "items_handled": 16,
+    "duration_ms": 5578,
+    "memory_mb": 73,
+    "worker_id": 4
+  },
+  {
+    "batch_id": 7,
+    "items_handled": 16,
+    "duration_ms": 6635,
+    "memory_mb": 73,
+    "worker_id": 6
+  },
+  {
+    "batch_id": 8,
+    "items_handled": 16,
+    "duration_ms": 7678,
+    "memory_mb": 73,
+    "worker_id": 5
+  },
+  {
+    "batch_id": 6,
+    "items_handled": 16,
+    "duration_ms": 8749,
+    "memory_mb": 73,
+    "worker_id": 3
+  },
+  {
+    "batch_id": 9,
+    "items_handled": 16,
+    "duration_ms": 8634,
+    "memory_mb": 74,
+    "worker_id": 7
+  },
+  {
+    "batch_id": 10,
+    "items_handled": 16,
+    "duration_ms": 8529,
+    "memory_mb": 74,
+    "worker_id": 2
+  },
+  {
+    "batch_id": 11,
+    "items_handled": 16,
+    "duration_ms": 8459,
+    "memory_mb": 74,
+    "worker_id": 0
+  },
+  {
+    "batch_id": 12,
+    "items_handled": 16,
+    "duration_ms": 8429,
+    "memory_mb": 74,
+    "worker_id": 1
+  },
+  {
+    "batch_id": 13,
+    "items_handled": 16,
+    "duration_ms": 8407,
+    "memory_mb": 74,
+    "worker_id": 4
+  },
+  {
+    "batch_id": 14,
+    "items_handled": 16,
+    "duration_ms": 8313,
+    "memory_mb": 74,
+    "worker_id": 6
+  },
+  {
+    "batch_id": 15,
+    "items_handled": 16,
+    "duration_ms": 8243,
+    "memory_mb": 74,
+    "worker_id": 5
+  },
+  {
+    "batch_id": 16,
+    "items_handled": 16,
+    "duration_ms": 8153,
+    "memory_mb": 75,
+    "worker_id": 3
+  },
+  {
+    "batch_id": 17,
+    "items_handled": 16,
+    "duration_ms": 8160,
+    "memory_mb": 75,
+    "worker_id": 7
+  },
+  {
+    "batch_id": 18,
+    "items_handled": 16,
+    "duration_ms": 8096,
+    "memory_mb": 75,
+    "worker_id": 2
+  },
+  {
+    "batch_id": 19,
+    "items_handled": 16,
+    "duration_ms": 8049,
+    "memory_mb": 75,
+    "worker_id": 0
+  },
+  {
+    "batch_id": 20,
+    "items_handled": 16,
+    "duration_ms": 8106,
+    "memory_mb": 75,
+    "worker_id": 1
+  },
+  {
+    "batch_id": 21,
+    "items_handled": 16,
+    "duration_ms": 8644,
+    "memory_mb": 75,
+    "worker_id": 4
+  },
+  {
+    "batch_id": 22,
+    "items_handled": 16,
+    "duration_ms": 9512,
+    "memory_mb": 75,
+    "worker_id": 6
+  },
+  {
+    "batch_id": 23,
+    "items_handled": 16,
+    "duration_ms": 10360,
+    "memory_mb": 76,
+    "worker_id": 5
+  },
+  {
+    "batch_id": 24,
+    "items_handled": 16,
+    "duration_ms": 10856,
+    "memory_mb": 76,
+    "worker_id": 3
+  },
+  {
+    "batch_id": 25,
+    "items_handled": 16,
+    "duration_ms": 11073,
+    "memory_mb": 76,
+    "worker_id": 7
+  },
+  {
+    "batch_id": 26,
+    "items_handled": 16,
+    "duration_ms": 11270,
+    "memory_mb": 76,
+    "worker_id": 2
+  },
+  {
+    "batch_id": 27,
+    "items_handled": 16,
+    "duration_ms": 12037,
+    "memory_mb": 76,
+    "worker_id": 0
+  },
+  {
+    "batch_id": 28,
+    "items_handled": 16,
+    "duration_ms": 12234,
+    "memory_mb": 76,
+    "worker_id": 1
+  },
+  {
+    "batch_id": 29,
+    "items_handled": 16,
+    "duration_ms": 12043,
+    "memory_mb": 76,
+    "worker_id": 4
+  },
+  {
+    "batch_id": 30,
+    "items_handled": 16,
+    "duration_ms": 11491,
+    "memory_mb": 77,
+    "worker_id": 6
+  },
+  {
+    "batch_id": 31,
+    "items_handled": 16,
+    "duration_ms": 11067,
+    "memory_mb": 77,
+    "worker_id": 5
+  },
+  {
+    "batch_id": 32,
+    "items_handled": 16,
+    "duration_ms": 12047,
+    "memory_mb": 77,
+    "worker_id": 3
+  },
+  {
+    "batch_id": 33,
+    "items_handled": 16,
+    "duration_ms": 12536,
+    "memory_mb": 77,
+    "worker_id": 7
+  },
+  {
+    "batch_id": 34,
+    "items_handled": 16,
+    "duration_ms": 12566,
+    "memory_mb": 77,
+    "worker_id": 2
+  },
+  {
+    "batch_id": 35,
+    "items_handled": 16,
+    "duration_ms": 12078,
+    "memory_mb": 77,
+    "worker_id": 0
+  },
+  {
+    "batch_id": 36,
+    "items_handled": 16,
+    "duration_ms": 12075,
+    "memory_mb": 77,
+    "worker_id": 1
+  },
+  {
+    "batch_id": 37,
+    "items_handled": 16,
+    "duration_ms": 12026,
+    "memory_mb": 78,
+    "worker_id": 4
+  },
+  {
+    "batch_id": 38,
+    "items_handled": 16,
+    "duration_ms": 12014,
+    "memory_mb": 78,
+    "worker_id": 6
+  },
+  {
+    "batch_id": 39,
+    "items_handled": 16,
+    "duration_ms": 12410,
+    "memory_mb": 78,
+    "worker_id": 5
+  },
+  {
+    "batch_id": 40,
+    "items_handled": 16,
+    "duration_ms": 11386,
+    "memory_mb": 78,
+    "worker_id": 3
+  },
+  {
+    "batch_id": 41,
+    "items_handled": 16,
+    "duration_ms": 10931,
+    "memory_mb": 78,
+    "worker_id": 7
+  },
+  {
+    "batch_id": 42,
+    "items_handled": 16,
+    "duration_ms": 11155,
+    "memory_mb": 78,
+    "worker_id": 2
+  },
+  {
+    "batch_id": 43,
+    "items_handled": 16,
+    "duration_ms": 11359,
+    "memory_mb": 78,
+    "worker_id": 0
+  },
+  {
+    "batch_id": 44,
+    "items_handled": 16,
+    "duration_ms": 11362,
+    "memory_mb": 78,
+    "worker_id": 1
+  },
+  {
+    "batch_id": 45,
+    "items_handled": 16,
+    "duration_ms": 11787,
+    "memory_mb": 79,
+    "worker_id": 4
+  },
+  {
+    "batch_id": 46,
+    "items_handled": 16,
+    "duration_ms": 12101,
+    "memory_mb": 79,
+    "worker_id": 6
+  },
+  {
+    "batch_id": 47,
+    "items_handled": 16,
+    "duration_ms": 11692,
+    "memory_mb": 79,
+    "worker_id": 5
+  },
+  {
+    "batch_id": 48,
+    "items_handled": 16,
+    "duration_ms": 12144,
+    "memory_mb": 79,
+    "worker_id": 3
+  },
+  {
+    "batch_id": 49,
+    "items_handled": 16,
+    "duration_ms": 12267,
+    "memory_mb": 79,
+    "worker_id": 7
+  },
+  {
+    "batch_id": 50,
+    "items_handled": 16,
+    "duration_ms": 12056,
+    "memory_mb": 79,
+    "worker_id": 2
+  },
+  {
+    "batch_id": 51,
+    "items_handled": 16,
+    "duration_ms": 11828,
+    "memory_mb": 79,
+    "worker_id": 0
+  },
+  {
+    "batch_id": 52,
+    "items_handled": 16,
+    "duration_ms": 11731,
+    "memory_mb": 79,
+    "worker_id": 1
+  },
+  {
+    "batch_id": 53,
+    "items_handled": 16,
+    "duration_ms": 11273,
+    "memory_mb": 80,
+    "worker_id": 4
+  },
+  {
+    "batch_id": 54,
+    "items_handled": 16,
+    "duration_ms": 11040,
+    "memory_mb": 80,
+    "worker_id": 6
+  },
+  {
+    "batch_id": 55,
+    "items_handled": 16,
+    "duration_ms": 10864,
+    "memory_mb": 80,
+    "worker_id": 5
+  },
+  {
+    "batch_id": 56,
+    "items_handled": 16,
+    "duration_ms": 10255,
+    "memory_mb": 80,
+    "worker_id": 3
+  },
+  {
+    "batch_id": 57,
+    "items_handled": 16,
+    "duration_ms": 10038,
+    "memory_mb": 80,
+    "worker_id": 7
+  },
+  {
+    "batch_id": 58,
+    "items_handled": 16,
+    "duration_ms": 9981,
+    "memory_mb": 80,
+    "worker_id": 2
+  },
+  {
+    "batch_id": 59,
+    "items_handled": 16,
+    "duration_ms": 9962,
+    "memory_mb": 80,
+    "worker_id": 0
+  },
+  {
+    "batch_id": 60,
+    "items_handled": 16,
+    "duration_ms": 10002,
+    "memory_mb": 80,
+    "worker_id": 1
+  },
+  {
+    "batch_id": 61,
+    "items_handled": 16,
+    "duration_ms": 9995,
+    "memory_mb": 80,
+    "worker_id": 4
+  },
+  {
+    "batch_id": 62,
+    "items_handled": 16,
+    "duration_ms": 9946,
+    "memory_mb": 80,
+    "worker_id": 6
+  },
+  {
+    "batch_id": 63,
+    "items_handled": 8,
+    "duration_ms": 9331,
+    "memory_mb": 80,
+    "worker_id": 5
+  }
+]

@@ -1,0 +1,77 @@
+{
+  "execution_summary": {
+    "total_execution_time": 629.0767731666565,
+    "csv_load_time": 0.30298733711242676,
+    "total_processed": 1000,
+    "processing_rate": 1.5896310953688282,
+    "success_rate": 100.0
+  },
+  "memory_usage": {
+    "initial_memory": 662.734375,
+    "final_memory": 732.4375,
+    "memory_increase": 69.703125,
+    "peak_memory": 760.29296875
+  },
+  "sentiment_analysis": {
+    "distribution": {
+      "POSITIVE": 477,
+      "NEGATIVE": 523
+    },
+    "average_confidence": 0.9737075561881066,
+    "total_reviews": 1000
+  },
+  "process_metrics": [
+    {
+      "process_id": 3,
+      "start_time": 1755889471.4965067,
+      "start_memory": 463.02734375,
+      "model_load_time": 87.21050500869751,
+      "processing_time": 502.99249243736267,
+      "total_time": 590.2036917209625,
+      "success_count": 250,
+      "error_count": 0,
+      "peak_memory": 759.59765625
+    },
+    {
+      "process_id": 0,
+      "start_time": 1755889471.4940314,
+      "start_memory": 463.0234375,
+      "model_load_time": 88.7881224155426,
+      "processing_time": 539.5916640758514,
+      "total_time": 628.3806021213531,
+      "success_count": 250,
+      "error_count": 0,
+      "peak_memory": 758.95703125
+    },
+    {
+      "process_id": 2,
+      "start_time": 1755889471.4956532,
+      "start_memory": 463.02734375,
+      "model_load_time": 90.40518569946289,
+      "processing_time": 538.0207321643829,
+      "total_time": 628.4266958236694,
+      "success_count": 250,
+      "error_count": 0,
+      "peak_memory": 760.29296875
+    },
+    {
+      "process_id": 1,
+      "start_time": 1755889471.494885,
+      "start_memory": 463.02734375,
+      "model_load_time": 88.78722190856934,
+      "processing_time": 539.8405256271362,
+      "total_time": 628.6282799243927,
+      "success_count": 250,
+      "error_count": 0,
+      "peak_memory": 757.68359375
+    }
+  ],
+  "system_info": {
+    "processes_used": 4,
+    "cpu_count": 16,
+    "total_memory_mb": 15611.078125,
+    "available_memory_mb": 4860.66015625,
+    "platform": "Linux"
+  },
+  "timestamp": "2025-08-23T00:45:00.242383"
+}

@@ -1,0 +1,34 @@
+{
+  "total_execution_time": 291.72195744514465,
+  "csv_load_time": 0.5179398059844971,
+  "initial_memory": 661.1875,
+  "final_memory": 729.88671875,
+  "memory_increase": 68.69921875,
+  "total_processed": 0,
+  "sentiment_distribution": {
+    "POSITIVE": 0,
+    "NEGATIVE": 0
+  },
+  "process_metrics": [
+    {
+      "process_id": 7,
+      "chunk_size": 125,
+      "start_time": 1755853286.4786046,
+      "start_memory": 462.44921875,
+      "model_load_time": 1.438410758972168,
+      "post_model_memory": 498.59375,
+      "model_memory_increase": 36.14453125,
+      "error": {
+        "error_type": "KeyError",
+        "error_message": "'end_memory'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/ayush/Desktop/go-python-ml-example/examples/go_py_ml/multithreadedTextClassifier.py\", line 103, in worker_function\n    'memory_peak': max(metrics['post_model_memory'], metrics['end_memory'])\n                                                     ~~~~~~~^^^^^^^^^^^^^^\nKeyError: 'end_memory'\n"
+      }
+    }
+  ],
+  "timestamp": "2025-08-22T14:36:03.366125",
+  "system_info": {
+    "cpu_count": 16,
+    "total_memory": 15611.078125,
+    "platform": "Linux"
+  }
+}

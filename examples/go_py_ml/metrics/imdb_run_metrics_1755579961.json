@@ -1,0 +1,132 @@
+{
+  "total_execution_time": 678.1452050209045,
+  "csv_load_time": 0.5790157318115234,
+  "initial_memory": 662.30078125,
+  "final_memory": 731.015625,
+  "memory_increase": 68.71484375,
+  "total_processed": 0,
+  "sentiment_distribution": {
+    "POSITIVE": 0,
+    "NEGATIVE": 0
+  },
+  "process_metrics": [
+    {
+      "process_id": 0,
+      "chunk_size": 125,
+      "start_time": 1755579283.702196,
+      "start_memory": 462.3359375,
+      "model_load_time": 1.529742956161499,
+      "post_model_memory": 498.2265625,
+      "model_memory_increase": 35.890625,
+      "error": {
+        "error_type": "KeyError",
+        "error_message": "'end_memory'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/ayush/Desktop/go-python-ml-example/examples/go_py_ml/multithreadedTextClassifier.py\", line 103, in worker_function\n    'memory_peak': max(metrics['post_model_memory'], metrics['end_memory'])\n                                                     ~~~~~~~^^^^^^^^^^^^^^\nKeyError: 'end_memory'\n"
+      }
+    },
+    {
+      "process_id": 1,
+      "chunk_size": 125,
+      "start_time": 1755579285.7185616,
+      "start_memory": 462.3359375,
+      "model_load_time": 2.7836849689483643,
+      "post_model_memory": 498.6796875,
+      "model_memory_increase": 36.34375,
+      "error": {
+        "error_type": "KeyError",
+        "error_message": "'end_memory'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/ayush/Desktop/go-python-ml-example/examples/go_py_ml/multithreadedTextClassifier.py\", line 103, in worker_function\n    'memory_peak': max(metrics['post_model_memory'], metrics['end_memory'])\n                                                     ~~~~~~~^^^^^^^^^^^^^^\nKeyError: 'end_memory'\n"
+      }
+    },
+    {
+      "process_id": 2,
+      "chunk_size": 125,
+      "start_time": 1755579287.7339942,
+      "start_memory": 462.33984375,
+      "model_load_time": 2.8545806407928467,
+      "post_model_memory": 498.29296875,
+      "model_memory_increase": 35.953125,
+      "error": {
+        "error_type": "KeyError",
+        "error_message": "'end_memory'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/ayush/Desktop/go-python-ml-example/examples/go_py_ml/multithreadedTextClassifier.py\", line 103, in worker_function\n    'memory_peak': max(metrics['post_model_memory'], metrics['end_memory'])\n                                                     ~~~~~~~^^^^^^^^^^^^^^\nKeyError: 'end_memory'\n"
+      }
+    },
+    {
+      "process_id": 3,
+      "chunk_size": 125,
+      "start_time": 1755579289.80598,
+      "start_memory": 462.28515625,
+      "model_load_time": 3.8560891151428223,
+      "post_model_memory": 498.22265625,
+      "model_memory_increase": 35.9375,
+      "error": {
+        "error_type": "KeyError",
+        "error_message": "'end_memory'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/ayush/Desktop/go-python-ml-example/examples/go_py_ml/multithreadedTextClassifier.py\", line 103, in worker_function\n    'memory_peak': max(metrics['post_model_memory'], metrics['end_memory'])\n                                                     ~~~~~~~^^^^^^^^^^^^^^\nKeyError: 'end_memory'\n"
+      }
+    },
+    {
+      "process_id": 4,
+      "chunk_size": 125,
+      "start_time": 1755579291.8838658,
+      "start_memory": 462.46484375,
+      "model_load_time": 3.1640255451202393,
+      "post_model_memory": 498.54296875,
+      "model_memory_increase": 36.078125,
+      "error": {
+        "error_type": "KeyError",
+        "error_message": "'end_memory'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/ayush/Desktop/go-python-ml-example/examples/go_py_ml/multithreadedTextClassifier.py\", line 103, in worker_function\n    'memory_peak': max(metrics['post_model_memory'], metrics['end_memory'])\n                                                     ~~~~~~~^^^^^^^^^^^^^^\nKeyError: 'end_memory'\n"
+      }
+    },
+    {
+      "process_id": 5,
+      "chunk_size": 125,
+      "start_time": 1755579293.976793,
+      "start_memory": 462.38671875,
+      "model_load_time": 5.67251992225647,
+      "post_model_memory": 498.79296875,
+      "model_memory_increase": 36.40625,
+      "error": {
+        "error_type": "KeyError",
+        "error_message": "'end_memory'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/ayush/Desktop/go-python-ml-example/examples/go_py_ml/multithreadedTextClassifier.py\", line 103, in worker_function\n    'memory_peak': max(metrics['post_model_memory'], metrics['end_memory'])\n                                                     ~~~~~~~^^^^^^^^^^^^^^\nKeyError: 'end_memory'\n"
+      }
+    },
+    {
+      "process_id": 6,
+      "chunk_size": 125,
+      "start_time": 1755579296.1169467,
+      "start_memory": 462.265625,
+      "model_load_time": 7.617392063140869,
+      "post_model_memory": 498.26171875,
+      "model_memory_increase": 35.99609375,
+      "error": {
+        "error_type": "KeyError",
+        "error_message": "'end_memory'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/ayush/Desktop/go-python-ml-example/examples/go_py_ml/multithreadedTextClassifier.py\", line 103, in worker_function\n    'memory_peak': max(metrics['post_model_memory'], metrics['end_memory'])\n                                                     ~~~~~~~^^^^^^^^^^^^^^\nKeyError: 'end_memory'\n"
+      }
+    },
+    {
+      "process_id": 7,
+      "chunk_size": 125,
+      "start_time": 1755579298.250226,
+      "start_memory": 462.3359375,
+      "model_load_time": 24.375329732894897,
+      "post_model_memory": 498.515625,
+      "model_memory_increase": 36.1796875,
+      "error": {
+        "error_type": "KeyError",
+        "error_message": "'end_memory'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/ayush/Desktop/go-python-ml-example/examples/go_py_ml/multithreadedTextClassifier.py\", line 103, in worker_function\n    'memory_peak': max(metrics['post_model_memory'], metrics['end_memory'])\n                                                     ~~~~~~~^^^^^^^^^^^^^^\nKeyError: 'end_memory'\n"
+      }
+    }
+  ],
+  "timestamp": "2025-08-19T10:36:01.254052",
+  "system_info": {
+    "cpu_count": 16,
+    "total_memory": 15611.0859375,
+    "platform": "Linux"
+  }
+}
