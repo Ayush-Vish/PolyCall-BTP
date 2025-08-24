@@ -1,0 +1,22 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metacall/beautifulsoup-express-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/metacall/beautifulsoup-express-example/issues"
+  },
+  "homepage": "https://github.com/metacall/beautifulsoup-express-example#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
